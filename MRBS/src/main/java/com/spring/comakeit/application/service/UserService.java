@@ -67,9 +67,9 @@ public class UserService {
 	}
 	public void cancelBulkRequests(MeetingRequest request,LocalDate startDate, LocalDate endDate) {
 		ArrayList<MeetingRequest> requests = new  ArrayList<MeetingRequest>(userRepository.cancelBulkRequests(startDate, endDate, request.getMeetingRoom().getMeetingRoomName(), request.getResource().getResourceName(), request.getUser().getUsername(), request.getStartTime(), request.getEndTime()));
-		for(MeetingRequest req : requests) {
-			req.setStatus(Status.CANCEL);
-			userRepository.save(req);
+		for(MeetingRequest eachRequest : requests) {
+			eachRequest.setStatus(Status.CANCEL);
+			userRepository.save(eachRequest);
 		}
 	}
 

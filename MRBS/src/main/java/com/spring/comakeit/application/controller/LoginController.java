@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +34,6 @@ public class LoginController {
 		Login user = new Login();
 		user.setUsername(username);
 		user.setPassword(password);
-		System.out.println(baseURL);
 		user = restTemplate.postForObject(baseURL + "login/authN", user, Login.class);
 		HttpSession session = request.getSession();
 

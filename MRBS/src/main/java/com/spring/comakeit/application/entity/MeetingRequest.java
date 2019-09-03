@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -18,6 +19,7 @@ import com.spring.comakeit.application.constants.Status;
 @Table(name = "MeetingRequest")
 public class MeetingRequest {
 	@Id
+	@Column(length=20)
 	private String requestId;
 	private LocalDate date;
 	private LocalTime startTime;
@@ -33,6 +35,7 @@ public class MeetingRequest {
 	private Resource resource;
 
 	@Enumerated(EnumType.STRING)
+	@Column(length=15)
 	private Status status;
 
 	private LocalDateTime requestedOn;

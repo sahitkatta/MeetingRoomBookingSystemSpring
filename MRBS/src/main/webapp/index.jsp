@@ -1,4 +1,6 @@
 <html>
+<head>
+<title>Welcome Page</title>
 <style>
 input[type=text], select {
   width: 100%;
@@ -41,6 +43,7 @@ div {
   padding: 10px;
 }
 </style>
+</head>
 <body>
 
 <h3>Welcome to Meeting Room Booking System</h3>
@@ -48,9 +51,9 @@ div {
 <div>
   <form action="Login" method="POST">
     <label for="username">Enter Username</label>
-    <input type="text" id="username" name="username" placeholder="username">
+    <input type="text" id="username" name="username" placeholder="username" required>
     <label for="password">Enter Password</label>
-    <input type="password" id="password" name="password" placeholder="password">
+    <input type="password" id="password" name="password" placeholder="password" required>
     <input type="submit" value="Submit">
     <%
     String operation = request.getParameter("operation");

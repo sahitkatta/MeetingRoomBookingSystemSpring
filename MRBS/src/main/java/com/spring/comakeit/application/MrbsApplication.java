@@ -15,8 +15,8 @@ public class MrbsApplication {
 
 	public static void main(String[] args) {
 
-		ConfigurableApplicationContext ctx = SpringApplication.run(MrbsApplication.class, args);
-		String serverPort = ctx.getEnvironment().getProperty("server.port");
+		ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(MrbsApplication.class, args);
+		String serverPort = configurableApplicationContext.getEnvironment().getProperty("server.port");
 		Constants.baseURL = "http://localhost:" + serverPort + "/";
 
 	}

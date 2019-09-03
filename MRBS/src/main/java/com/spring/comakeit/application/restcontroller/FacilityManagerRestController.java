@@ -21,20 +21,20 @@ import com.spring.comakeit.application.entity.Resource;
 import com.spring.comakeit.application.service.FacilityManagerService;
 
 @RestController
-@RequestMapping("facilityManager") // F -> small f
+@RequestMapping("facilityManager") 
 public class FacilityManagerRestController {
 	@Autowired
 	private FacilityManagerService facilityManagerService;
 
 	//GET
-	/* viewUsers
+	/* 
+	 * viewUsers
 	 * getAllPendingRequest
 	 * getAllRequest
 	 * getAllRequestForGivenDay
 	 * getMRFrequency
 	 * getResourceFrequency
-	 * mostResourceUsed --PlainText
-	 * 
+	 * mostResourceUsed -->(PlainText)
 	 * */
 	@RequestMapping("viewUsers")
 	@GetMapping
@@ -81,17 +81,16 @@ public class FacilityManagerRestController {
 	}
 
 	//POST
-	/* addMeetingRoom
+	/* 
+	 * addMeetingRoom
 	 * addResource
 	 * createUser
 	 * requestHR
 	 * acceptRequest
 	 * acceptHRRequest
-	 * 
 	 * */
 	@RequestMapping("createUser")
 	@PostMapping
-
 	public Login createUser(@RequestBody Login user){
 		return facilityManagerService.createUser(user.getUsername(),user.getPassword());
 	}
@@ -140,7 +139,8 @@ public class FacilityManagerRestController {
 	}
 
 	//DELETE
-	/* deleteUser
+	/* 
+	 * deleteUser
 	 * */
 	@RequestMapping("deleteUser/{username}")
 	@DeleteMapping

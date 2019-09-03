@@ -16,6 +16,10 @@ import com.spring.comakeit.application.service.LoginService;
 public class LoginRestController {
 	@Autowired
 	private LoginService loginService;
+	//POST
+	/*
+	 * authenticate
+	 * */
 	@RequestMapping("/authN")
 	@PostMapping
 	Login authenticate(@RequestBody Login user) {

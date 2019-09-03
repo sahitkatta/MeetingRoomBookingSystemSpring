@@ -1,5 +1,6 @@
 package com.spring.comakeit.application.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -13,9 +14,11 @@ public class Login {
 	}
 
 	@Id
+	@Column(length=32)
 	private String username;
-
+	@Column(length=32)
 	private String password;
+	@Column(length=32)
 	private String role;
 
 	public String getUsername() {

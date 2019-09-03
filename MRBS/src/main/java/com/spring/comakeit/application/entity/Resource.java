@@ -1,5 +1,6 @@
 package com.spring.comakeit.application.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 public class Resource {
 	@Id
 	private Integer id;
+	@Column(length=32)
 	private String resourceName;
 
 	public Integer getId() {

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Facility Manager</title>
+<title>Welcome</title>
 <style>
 * {
 	box-sizing: border-box;
@@ -104,8 +104,8 @@ tr:nth-child(even) {
 			%>
 			<form action="FacilityManager?operation=createUser"
 					method="post">
-					Enter Username : <input type="text" name="username" placeholder="username"><br>
-					Enter Password :<input type="password" name="password" placeholder="password"><br>
+					Enter Username : <input type="text" name="username" placeholder="username" required><br>
+					Enter Password :<input type="password" name="password" placeholder="password" required><br>
 					<input type="submit" name="submit" value="create">
 				</form>
 			<%
@@ -115,7 +115,7 @@ tr:nth-child(even) {
 			%>
 				<form action="FacilityManager?operation=deleteUser"
 					method="post">
-					Enter Username : <input type="text" name="username" placeholder="username"><br>
+					Enter Username : <input type="text" name="username" placeholder="username" required><br>
 					<input type="submit" name="submit" value="delete">
 				</form>
 			<%
@@ -125,8 +125,8 @@ tr:nth-child(even) {
 			%>
 			<form action="FacilityManager?operation=addMeetingRoom"
 					method="post">
-					Meeting Room Id : <input type="text" name="id" placeholder="id"><br>
-					Meeting Room Name : <input type="text" name="meetingRoom" placeholder="MR name"><br>
+					Meeting Room Id : <input type="text" name="id" placeholder="id" required><br>
+					Meeting Room Name : <input type="text" name="meetingRoom" placeholder="MR name" required><br>
 					<input type="submit" name="submit" value="Add">
 			</form>
 			<%
@@ -136,8 +136,8 @@ tr:nth-child(even) {
 			%>
 			<form action="FacilityManager?operation=addResource"
 					method="post">
-					Resource Id : <input type="text" name="id" placeholder="id"><br>
-					Resource Name : <input type="text" name="resource" placeholder="resource name"><br>
+					Resource Id : <input type="text" name="id" placeholder="id" required><br>
+					Resource Name : <input type="text" name="resource" placeholder="resource name" required><br>
 					<input type="submit" name="submit" value="Add">
 			</form>
 			<%
@@ -147,7 +147,7 @@ tr:nth-child(even) {
 			%>
 			<form action="FacilityManager?operation=getAllRequestForGivenDay"
 					method="post">
-					Enter a  Date: <input type="date" name="date" value="<%=LocalDate.now().toString()%>"><br>
+					Enter a  Date: <input type="date" name="date" value="<%=LocalDate.now().toString()%>" max="<%=LocalDate.now().getYear()+1%>-12-31" min="<%=LocalDate.now()%>" required><br>
 					<input type="submit" name="submit" value="Get Requests">
 			</form>
 			<%

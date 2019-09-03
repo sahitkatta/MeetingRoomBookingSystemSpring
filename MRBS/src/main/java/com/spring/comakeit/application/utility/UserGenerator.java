@@ -11,8 +11,8 @@ public class UserGenerator {
 		String result ="";
 		result +=  username.charAt(0);
 		result =result.toUpperCase();
-		Random rand = new Random(); 
-		Integer value = rand.nextInt(10000000)+1;
+		Random random = new Random(); 
+		Integer value = random.nextInt(10000000);
 		result += value.toString();
 		return result;
 		

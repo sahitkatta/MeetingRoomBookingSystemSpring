@@ -27,7 +27,7 @@ import com.spring.comakeit.application.utility.UserGenerator;
 @Controller
 public class FacilityManagerController {
 	@RequestMapping("FacilityManager")
-	ModelAndView user(HttpServletRequest request) {
+	ModelAndView FacilityManager(HttpServletRequest request) {
 		String facilityManagerBaseURL = Constants.baseURL + "facilityManager/";
 		String operation = request.getParameter("operation");
 		HttpSession session = request.getSession();

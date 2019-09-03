@@ -3,14 +3,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="com.spring.comakeit.application.entity.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.ArrayList"%>
-<c:set var="path" value ="${pageContext.request.contextPath} "></c:set>  
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>User</title>
+<title>Welcome</title>
 <style>
 * {
 	box-sizing: border-box;
@@ -27,7 +26,7 @@
 }
 
 .main {
-	/*border-left: 2px solid grey;*/
+
 	width: 75%;
 	float: left;
 	padding: 15px;
@@ -43,13 +42,13 @@ a:visited {
 	text-decoration: none;
 }
 
-/* mouse over link */
+
 a:hover {
 	color: green;
 	text-decoration: none;
 }
 
-/* selected link */
+
 a:active {
 	color: blue;
 	text-decoration: none;
@@ -89,7 +88,6 @@ tr:nth-child(even) {
 		</h1>
 	</div>
 	<div class="menu">
-		<!-- <a href="?operation=request">Request a Slot</a><br> -->
 		<a href="User.jsp?operation=requests">Request Slot(s)</a><br>
 		<a href="User.jsp?operation=cancelBulkRequests">Cancel Slot(s)</a><br>
 		<a href="User?operation=view">View Requested Slot</a><br> <a
@@ -105,9 +103,9 @@ tr:nth-child(even) {
 		%>
 		<form action="User?operation=request" method="post">
 			Date: <input type="date" name="date" id="date"
-				value="<%=LocalDate.now().toString()%>"><br> Start
-			Time: <input type="time" name="startTime"><br> End Time:<input
-				type="time" name="endTime"><br> <select
+				value="<%=LocalDate.now().toString()%>" required><br> Start
+			Time: <input type="time" name="startTime" required><br> End Time:<input
+				type="time" name="endTime" required><br> <select
 				name="meetingRoomNumber">
 				<%
 				for(MeetingRoom room: meetingRoomList){
@@ -134,11 +132,11 @@ tr:nth-child(even) {
 				%>
 		<form action="User?operation=requests" method="post">
 			Start Date: <input type="date" name="startDate"
-				value="<%=LocalDate.now().toString()%>"><br> End Date:
+				value="<%=LocalDate.now().toString()%>" max="<%=LocalDate.now().getYear()+1%>-12-31" min="<%=LocalDate.now()%>" required><br> End Date:
 			<input type="date" name="endDate"
-				value="<%=LocalDate.now().toString()%>"> <br> Start
-			Time: <input type="time" name="startTime"><br> End Time:<input
-				type="time" name="endTime"><br> <select
+				value="<%=LocalDate.now().toString()%>"  max="<%=LocalDate.now().getYear()+1%>-12-31" min="<%=LocalDate.now()%>" required> <br> Start
+			Time: <input type="time" name="startTime" required><br> End Time:<input
+				type="time" name="endTime" required><br> <select
 				name="meetingRoomNumber">
 				<%
 				for(MeetingRoom room: meetingRoomList){
@@ -234,12 +232,12 @@ tr:nth-child(even) {
 			}else if(operation.equals("cancelBulkRequests")){
 				%>
 		<form action="User?operation=cancelBulkRequests" method="post">
-			Start Date: <input type="date" name="startDate" id="date"
+			Start Date: <input type="date" name="startDate" id="date" max="<%=LocalDate.now().getYear()+1%>-12-31" min="<%=LocalDate.now()%>" required
 				value="<%=LocalDate.now().toString()%>"><br>End Date: <input
 				type="date" name="endDate" id="date"
-				value="<%=LocalDate.now().toString()%>"><br> Start
-			Time: <input type="time" name="startTime"><br> End Time:<input
-				type="time" name="endTime"><br> <select
+				value="<%=LocalDate.now().toString()%>"  max="<%=LocalDate.now().getYear()+1%>-12-31" min="<%=LocalDate.now()%>" required><br> Start
+			Time: <input type="time" name="startTime" required><br> End Time:<input
+				type="time" name="endTime" required><br> <select
 				name="meetingRoomNumber">
 				<%
 				for(MeetingRoom room: meetingRoomList){
